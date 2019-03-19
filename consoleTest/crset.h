@@ -23,4 +23,6 @@ private:
 }
 }
 
+std::ostream& operator<<(std::ostream& out, const CastleRoot::Mem::CrSet& p);
+
 #endif // CRSET_H

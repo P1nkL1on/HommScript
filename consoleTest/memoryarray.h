@@ -14,14 +14,14 @@ template <typename T>
 class MemoryArray
 {
 private:
-    QVector<T> v;
+    QVector<T*> v;
     QVector<QString> names;
 public:
     MemoryArray() = default;
 
     int findIndexByName(const QString &name) const;
-    T findValueByName(const QString &name) const;
-    T getValueByIndex(const int index) const;
+    T * findValueByName(const QString &name) const;
+    T * getValueByIndex(const int index) const;
 
     void addValue(const T &val, const QString &name);
     void addValue(const T &val);
@@ -45,7 +45,7 @@ int MemoryArray<T>::findIndexByName(const QString &name) const
 }
 
 template <typename T>
-T MemoryArray<T>::findValueByName(const QString &name) const
+T * MemoryArray<T>::findValueByName(const QString &name) const
 {
     const int ind = names.indexOf(name);
     if (ind < 0)
@@ -54,7 +54,7 @@ T MemoryArray<T>::findValueByName(const QString &name) const
 }
 
 template<typename T>
-T MemoryArray<T>::getValueByIndex(const int index) const
+T * MemoryArray<T>::getValueByIndex(const int index) const
 {
     if (index < 0 || index >= v.length())
         throw std::out_of_range("Out of range exception! Found ub MemoryArray::getValueByIndex!");
@@ -63,7 +63,7 @@ T MemoryArray<T>::getValueByIndex(const int index) const
 
 template <typename T>
 void MemoryArray<T>::addValue(const T &val, const QString &name){
-    v << val;
+    v << new T(val);
     names << name;
 }
 
@@ -96,7 +96,7 @@ void MemoryArray<T>::traceCout() const
 {
     std::cout << "Mem array: (" << v.length() << ")" << std::endl;
     for (int i = 0; i < v.length(); ++i)
-        std::cout << "  " << names[i].toLocal8Bit().constData() << " = " << v[i] << std::endl;
+        std::cout << "  " << names[i].toLocal8Bit().constData() << " = " << *v[i] << std::endl;
 }
 
 template<typename T>

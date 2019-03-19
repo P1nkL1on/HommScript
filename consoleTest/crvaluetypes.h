@@ -35,5 +35,6 @@ struct MemValueType
 
 }
 }
+std::ostream& operator<<(std::ostream& out, const CastleRoot::Mem::MemValueType& val);
 
 #endif // CRVALUETYPES_H

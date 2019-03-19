@@ -11,7 +11,8 @@ SOURCES += main.cpp \
     memoryholder.cpp \
     crpointer.cpp \
     crobject.cpp \
-    crset.cpp
+    crset.cpp \
+    crvaluetypes.cpp
 
 HEADERS += \
     memoryholder.h \
@@ -21,4 +22,7 @@ HEADERS += \
     crobject.h \
     crset.h \
     crvaluetypes.h
+
+DISTFILES += \
+    codeExamples.txt
 

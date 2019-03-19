@@ -19,3 +19,9 @@ QVector<int> CrSet::indices() const
     return m_indices;
 }
 
+
+std::ostream &operator<<(std::ostream &out, const CrSet &p)
+{
+    out << "set {do later!}";
+    return out;
+}
