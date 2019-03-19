@@ -6,6 +6,7 @@
 namespace CastleRoot{
 namespace Mem{
 
+
 enum class MemoryStorageType
 {
     Integer = 0,
@@ -22,6 +23,8 @@ static std::vector<std::string> typeNames = {"int", "float", "string", "bool", "
 inline std::string typeToStdString(const MemoryStorageType &type){
     return typeNames[static_cast<int>(type)];
 }
+
+
 
 }
 }
