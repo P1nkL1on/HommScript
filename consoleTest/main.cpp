@@ -1,7 +1,7 @@
 #include <QCoreApplication>
 
 #include <iostream>
-#include "memoryarray.h"
+#include "memoryholder.h"
 
 using namespace CastleRoot;
 using namespace std;
@@ -12,8 +12,9 @@ int main(){
 
     cout << "Hello, world!" << endl;
 
-    Mem::MemoryArray<int> vars;
 
+    Mem::MemoryHolder mh;
+    mh.test();
 
     return 0;
 }
